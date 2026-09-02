@@ -3,4 +3,4 @@ Allow: /
 Disallow: /decode.html
 
 # TODO: 上線後把網域換成你的實際網址
-Sitemap: https://academie-babel.example.com/sitemap.xml
+Sitemap: https://harrison60673.github.io/academie-babel-demo/sitemap.xml
