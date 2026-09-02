@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>課程與每週課表｜等級班 · 考前衝刺 · 一對一 — ACADÉMIE BABEL</title>
+<meta name="description" content="ACADÉMIE BABEL 法語課程方案：A1–C1 等級班、DELF／TCF 考前衝刺班、一對一客製課，線上與實體皆有。附每週課表、名額狀態與報名方式。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="課程與每週課表 — ACADÉMIE BABEL">
+<meta property="og:description" content="等級班、考前衝刺、一對一。線上與實體，每週課表與名額狀態一次看。">
+<meta property="og:image" content="assets/og-template.svg">
+<meta property="og:url" content="https://academie-babel.example.com/courses.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="bm" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#A87F45"/><stop offset=".5" stop-color="#E3C68D"/><stop offset="1" stop-color="#C9A063"/>
+        </linearGradient></defs>
+        <g fill="url(#bm)">
+          <polygon points="4,58 60,58 55,44 9,44"/>
+          <polygon points="12,41 52,41 47,27 17,27"/>
+          <polygon points="20,24 44,24 39,10 25,10"/>
+        </g>
+        <line x1="32" y1="10" x2="32" y2="58" stroke="var(--blanc)" stroke-width="2.6"/>
+      </svg>
+      <span>
+        <span class="brand-name">ACADÉMIE BABEL</span>
+        <span class="brand-sub">DELF · DALF · TCF</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">選單</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="exams.html">法語檢定</a></li>
+        <li><a href="courses.html" aria-current="page">課程與課表</a></li>
+        <li><a href="teachers.html">師資</a></li>
+        <li><a href="contact.html">聯絡</a></li>
+        <li><a class="nav-cta" href="quiz.html">免費分級測驗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="wrap" style="padding-bottom:var(--s3)">
+    <p class="kicker">Cours &amp; horaires</p>
+    <h1>課程與每週課表</h1>
+    <p class="lede">等級班每期 12 至 16 週，最多六人。考前衝刺班依考程開班，一對一時間自訂。所有課程皆有線上與實體選項。</p>
+    <p class="muted" style="font-size:var(--fs-small)">
+      <span class="dot dot-open"></span>開放報名　
+      <span class="dot dot-wait"></span>候補中　
+      <span class="dot dot-full"></span>已額滿
+    </p>
+  </section>
+
+  <!-- ============ 篩選 ============ -->
+  <section class="wrap" style="padding-block:0" aria-labelledby="filter-h">
+    <h2 id="filter-h" class="sr-only">篩選課程</h2>
+    <div class="filters" data-filters>
+      <span class="filter-label" id="lv-label">等級</span>
+      <div role="group" aria-labelledby="lv-label" style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <button class="chip" data-group="level" data-value="all" aria-pressed="true">全部</button>
+        <button class="chip" data-group="level" data-value="A1" aria-pressed="false">A1</button>
+        <button class="chip" data-group="level" data-value="A2" aria-pressed="false">A2</button>
+        <button class="chip" data-group="level" data-value="B1" aria-pressed="false">B1</button>
+        <button class="chip" data-group="level" data-value="B2" aria-pressed="false">B2</button>
+        <button class="chip" data-group="level" data-value="C1" aria-pressed="false">C1</button>
+      </div>
+      <span class="filter-label" id="md-label" style="margin-left:1rem">形式</span>
+      <div role="group" aria-labelledby="md-label" style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <button class="chip" data-group="mode" data-value="all" aria-pressed="true">全部</button>
+        <button class="chip" data-group="mode" data-value="onsite" aria-pressed="false">實體</button>
+        <button class="chip" data-group="mode" data-value="online" aria-pressed="false">線上</button>
+      </div>
+      <p id="filter-count" class="muted" style="font-size:var(--fs-micro);margin:0;width:100%" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ============ 課程方案卡 ============ -->
+  <!-- TODO: 要新增或修改班級，直接複製一整個 .course-card 區塊。
+       id 供分級測驗結果頁 anchor 連結使用，請勿隨意更名：
+       class-a1 / class-a2 / class-b1 / class-b2 / class-c1 -->
+  <section class="wrap reveal" aria-labelledby="plans">
+    <p class="kicker">課程方案</p>
+    <h2 id="plans">等級班</h2>
+    <div class="cols cols-3" style="margin-top:2rem">
+
+      <article class="card course-card" id="class-a1" data-level="A1" data-mode="onsite">
+        <span class="card-meta">A1 · 實體 · 12 週</span>
+        <h3>A1 入門班</h3>
+        <p>從發音與 alphabet 開始。學完能自我介紹、點餐、問路、填寫基本表格，對應 DELF A1。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">週二・四 19:30–21:30／Camille Béranger／NT$12,800<!-- TODO: 確認學費 --></p>
+        <p><span class="dot dot-open"></span>開放報名 · 尚餘 3 位</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">私訊報名</a>
+      </article>
+
+      <article class="card course-card" id="class-a2" data-level="A2" data-mode="online">
+        <span class="card-meta">A2 · 線上 · 14 週</span>
+        <h3>A2 初階班</h3>
+        <p>補完過去時態與日常情境語彙，能描述經驗與環境，對應 DELF A2 的四科題型。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">週一・三 20:00–21:30／Julien Marchand／NT$13,800<!-- TODO: 確認學費 --></p>
+        <p><span class="dot dot-open"></span>開放報名 · 尚餘 4 位</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">私訊報名</a>
+      </article>
+
+      <article class="card course-card" id="class-b1" data-level="B1" data-mode="online">
+        <span class="card-meta">B1 · 線上 · 16 週</span>
+        <h3>B1 進階班</h3>
+        <p>從句子走向段落。虛擬式入門、觀點表達與連接詞訓練，對應 DELF B1 的寫作與口說。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">週三 19:00–21:00／Julien Marchand／NT$16,500<!-- TODO: 確認學費 --></p>
+        <p><span class="dot dot-wait"></span>候補中</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">加入候補</a>
+      </article>
+
+      <article class="card course-card" id="class-b2" data-level="B2" data-mode="onsite">
+        <span class="card-meta">B2 · 實體 · 16 週</span>
+        <h3>B2 高階班</h3>
+        <p>論證結構、時事閱讀與辯論。留學申請最常需要的一級，寫作每兩週一篇全批改。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">週一・四 19:30–21:30／Sophie Lambert／NT$18,500<!-- TODO: 確認學費 --></p>
+        <p><span class="dot dot-open"></span>開放報名 · 尚餘 2 位</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">私訊報名</a>
+      </article>
+
+      <article class="card course-card" id="class-c1" data-level="C1" data-mode="onsite">
+        <span class="card-meta">C1 · 實體 · 16 週</span>
+        <h3>C1 精通班</h3>
+        <p>學術法語：synthèse 綜合寫作、口頭報告與答辯、長篇聽力筆記，對應 DALF C1。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">週六 14:00–17:00／Sophie Lambert／NT$21,000<!-- TODO: 確認學費 --></p>
+        <p><span class="dot dot-full"></span>已額滿 · 下期 1 月開課</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">預約下期</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap reveal" aria-labelledby="special">
+    <h2 id="special">衝刺班與一對一</h2>
+    <div class="cols cols-3" style="margin-top:2rem">
+      <article class="card course-card" id="class-sprint-b2" data-level="B2" data-mode="onsite">
+        <span class="card-meta">B2 · 實體 · 8 週</span>
+        <h3>DELF B2 考前衝刺</h3>
+        <p>全程仿真計時，四科輪練，每週一份完整模擬與逐份講評。建議已有 B1 後段程度再報名。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">週六 10:00–13:00／Sophie Lambert／NT$14,000<!-- TODO: 確認學費 --></p>
+        <p><span class="dot dot-full"></span>已額滿</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">預約下期</a>
+      </article>
+
+      <article class="card course-card" id="class-sprint-tcf" data-level="B1" data-mode="online">
+        <span class="card-meta">B1–B2 · 線上 · 6 週</span>
+        <h3>TCF 考前衝刺</h3>
+        <p>針對 TCF SO 與 TCF Canada 的題型與計分方式設計，含電腦作答節奏與時間分配訓練。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">週日 10:00–12:30／Julien Marchand／NT$11,500<!-- TODO: 確認學費 --></p>
+        <p><span class="dot dot-open"></span>開放報名 · 尚餘 5 位</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">私訊報名</a>
+      </article>
+
+      <article class="card course-card" id="class-private" data-level="A1" data-mode="online">
+        <span class="card-meta">A1–C2 · 線上或實體 · 時間自訂</span>
+        <h3>一對一客製課</h3>
+        <p>先做需求訪談與程度診斷，再排課綱。適合有明確時程壓力、或需要單科補強的學員。</p>
+        <p class="muted" style="font-size:var(--fs-micro)">每堂 90 分鐘／NT$2,200 起<!-- TODO: 確認鐘點費 --></p>
+        <p><span class="dot dot-open"></span>常態開放</p>
+        <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">預約訪談</a>
+      </article>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule-tower" role="separator" aria-hidden="true">
+    <svg viewBox="0 0 64 64"><g fill="var(--gold)"><polygon points="8,54 56,54 52,42 12,42"/><polygon points="14,39 50,39 46,27 18,27"/><polygon points="20,24 44,24 40,12 24,12"/></g><line x1="32" y1="12" x2="32" y2="54" stroke="var(--blanc)" stroke-width="3"/></svg>
+  </div></div>
+
+  <!-- ============ 每週課表 ============ -->
+  <!-- TODO: 課表要改的話，桌機表格與手機卡片兩處都要改（同樣的 .slot 區塊）。
+       每個 .slot 需帶 data-level 與 data-mode，篩選才會生效。 -->
+  <section class="wrap reveal" aria-labelledby="sched">
+    <p class="kicker">Horaires</p>
+    <h2 id="sched">每週課表</h2>
+    <p class="lede">以下為常態班時段，實際開課依當期梯次調整。上方篩選同時作用於課表。</p>
+
+    <div class="table-scroll schedule-table" style="margin-top:2rem">
+      <table class="schedule">
+        <caption class="sr-only">每週課表：橫向為星期一至星期日，縱向為時段</caption>
+        <thead>
+          <tr>
+            <th scope="col">時段</th>
+            <th scope="col">週一</th><th scope="col">週二</th><th scope="col">週三</th>
+            <th scope="col">週四</th><th scope="col">週五</th><th scope="col">週六</th><th scope="col">週日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">上午<br>10:00–13:00</th>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="B2" data-mode="onsite">
+                <span class="slot-lv">B2 衝刺</span>
+                <span class="slot-meta"><span class="dot dot-full"></span>10:00–13:00 · Sophie Lambert · 法語授課 · 額滿</span>
+              </span>
+            </td>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="B1" data-mode="online">
+                <span class="slot-lv">TCF 衝刺</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>10:00–12:30 · Julien Marchand · 線上 · 開放</span>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">下午<br>14:00–17:00</th>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="A1" data-mode="online">
+                <span class="slot-lv">A1 一對一</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>時間自訂 · 各師資 · 中法雙語 · 開放</span>
+              </span>
+            </td>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="C1" data-mode="onsite">
+                <span class="slot-lv">C1 精通班</span>
+                <span class="slot-meta"><span class="dot dot-full"></span>14:00–17:00 · Sophie Lambert · 全法語 · 額滿</span>
+              </span>
+            </td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+          </tr>
+          <tr>
+            <th scope="row">晚間<br>19:00–21:30</th>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="A2" data-mode="online">
+                <span class="slot-lv">A2 初階班</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>20:00–21:30 · Julien Marchand · 線上 · 開放</span>
+              </span>
+              <span class="slot" data-level="B2" data-mode="onsite">
+                <span class="slot-lv">B2 高階班</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Sophie Lambert · 全法語 · 尚餘 2 位</span>
+              </span>
+            </td>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="A1" data-mode="onsite">
+                <span class="slot-lv">A1 入門班</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Camille Béranger · 中法雙語 · 尚餘 3 位</span>
+              </span>
+            </td>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="A2" data-mode="online">
+                <span class="slot-lv">A2 初階班</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>20:00–21:30 · Julien Marchand · 線上 · 開放</span>
+              </span>
+              <span class="slot" data-level="B1" data-mode="online">
+                <span class="slot-lv">B1 進階班</span>
+                <span class="slot-meta"><span class="dot dot-wait"></span>19:00–21:00 · Julien Marchand · 線上 · 候補</span>
+              </span>
+            </td>
+            <td data-daycell>
+              <span class="cell-empty muted" hidden>—</span>
+              <span class="slot" data-level="A1" data-mode="onsite">
+                <span class="slot-lv">A1 入門班</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Camille Béranger · 中法雙語 · 尚餘 3 位</span>
+              </span>
+              <span class="slot" data-level="B2" data-mode="onsite">
+                <span class="slot-lv">B2 高階班</span>
+                <span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Sophie Lambert · 全法語 · 尚餘 2 位</span>
+              </span>
+            </td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+            <td data-daycell><span class="cell-empty muted">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 手機版：同樣內容改成一天一張卡 -->
+    <div class="schedule-cards" style="margin-top:2rem">
+      <div class="day-card">
+        <h3>週一</h3>
+        <span class="slot" data-level="A2" data-mode="online"><span class="slot-lv">A2 初階班</span><span class="slot-meta"><span class="dot dot-open"></span>20:00–21:30 · Julien Marchand · 線上 · 開放</span></span>
+        <span class="slot" data-level="B2" data-mode="onsite"><span class="slot-lv">B2 高階班</span><span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Sophie Lambert · 全法語 · 尚餘 2 位</span></span>
+      </div>
+      <div class="day-card">
+        <h3>週二</h3>
+        <span class="slot" data-level="A1" data-mode="onsite"><span class="slot-lv">A1 入門班</span><span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Camille Béranger · 中法雙語 · 尚餘 3 位</span></span>
+      </div>
+      <div class="day-card">
+        <h3>週三</h3>
+        <span class="slot" data-level="A2" data-mode="online"><span class="slot-lv">A2 初階班</span><span class="slot-meta"><span class="dot dot-open"></span>20:00–21:30 · Julien Marchand · 線上 · 開放</span></span>
+        <span class="slot" data-level="B1" data-mode="online"><span class="slot-lv">B1 進階班</span><span class="slot-meta"><span class="dot dot-wait"></span>19:00–21:00 · Julien Marchand · 線上 · 候補</span></span>
+      </div>
+      <div class="day-card">
+        <h3>週四</h3>
+        <span class="slot" data-level="A1" data-mode="onsite"><span class="slot-lv">A1 入門班</span><span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Camille Béranger · 中法雙語 · 尚餘 3 位</span></span>
+        <span class="slot" data-level="B2" data-mode="onsite"><span class="slot-lv">B2 高階班</span><span class="slot-meta"><span class="dot dot-open"></span>19:30–21:30 · Sophie Lambert · 全法語 · 尚餘 2 位</span></span>
+      </div>
+      <div class="day-card">
+        <h3>週五</h3>
+        <span class="slot" data-level="A1" data-mode="online"><span class="slot-lv">一對一</span><span class="slot-meta"><span class="dot dot-open"></span>時間自訂 · 各師資 · 中法雙語 · 開放</span></span>
+      </div>
+      <div class="day-card">
+        <h3>週六</h3>
+        <span class="slot" data-level="B2" data-mode="onsite"><span class="slot-lv">B2 衝刺</span><span class="slot-meta"><span class="dot dot-full"></span>10:00–13:00 · Sophie Lambert · 法語授課 · 額滿</span></span>
+        <span class="slot" data-level="C1" data-mode="onsite"><span class="slot-lv">C1 精通班</span><span class="slot-meta"><span class="dot dot-full"></span>14:00–17:00 · Sophie Lambert · 全法語 · 額滿</span></span>
+      </div>
+      <div class="day-card">
+        <h3>週日</h3>
+        <span class="slot" data-level="B1" data-mode="online"><span class="slot-lv">TCF 衝刺</span><span class="slot-meta"><span class="dot dot-open"></span>10:00–12:30 · Julien Marchand · 線上 · 開放</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap reveal" style="text-align:center">
+    <div class="tricolore" style="margin:0 auto 1.5rem" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h2>報名方式</h2>
+    <p class="lede" style="margin-inline:auto">本站沒有線上報名系統。請用 Instagram 私訊或 Email 告訴我們想上的班別與程度，我們會回覆確認名額與繳費方式。</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="https://instagram.com/academie_babel" rel="noopener">Instagram 私訊</a>
+      <a class="btn btn-ghost" href="mailto:bonjour@academie-babel.example.com?subject=%E8%AA%B2%E7%A8%8B%E5%A0%B1%E5%90%8D%E8%A9%A2%E5%95%8F">寄 Email 詢問</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand-name">ACADÉMIE BABEL</span>
+        <p class="muted" style="font-size:var(--fs-small);margin-top:.6rem">法語學院 · DELF · DALF · TCF · TEF 檢定準備</p>
+        <div class="tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div>
+        <h4>網站</h4>
+        <ul>
+          <li><a href="exams.html">法語檢定介紹</a></li>
+          <li><a href="courses.html">課程與課表</a></li>
+          <li><a href="teachers.html">師資</a></li>
+          <li><a href="quiz.html">免費分級測驗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>聯絡</h4>
+        <ul>
+          <li><a href="https://instagram.com/academie_babel" rel="noopener">Instagram @academie_babel</a></li>
+          <li><a href="mailto:bonjour@academie-babel.example.com">bonjour@academie-babel.example.com</a><!-- TODO: 換成實際 Email --></li>
+          <li><a href="contact.html">上課地點與時間</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> ACADÉMIE BABEL</span>
+      <span>本站考試資訊僅供參考，正式規定以 France Éducation international 及各主辦單位公告為準。</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

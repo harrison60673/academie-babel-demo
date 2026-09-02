@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>師資｜母語法語教師團隊 — ACADÉMIE BABEL</title>
+<meta name="description" content="ACADÉMIE BABEL 的法語母語師資：具 FLE 教學資格與 DELF／DALF 考官經驗，專長涵蓋 A1 到 C2 與各類檢定準備。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="師資 — ACADÉMIE BABEL">
+<meta property="og:description" content="母語法語教師，具 FLE 資格與檢定閱卷經驗。">
+<meta property="og:image" content="assets/og-template.svg">
+<meta property="og:url" content="https://academie-babel.example.com/teachers.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* 照片佔位：換成真實照片時，把 .photo 內的 svg 換成 <img src="assets/teachers/xxx.jpg" alt="…"> */
+  .photo { aspect-ratio: 4 / 5; background: var(--gold-tint); border: 1px solid var(--gold-hair);
+           display: grid; place-items: center; border-radius: var(--radius); overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo .initials { font-family: var(--font-display); font-size: 3rem; color: var(--gold-deep); letter-spacing: .08em; }
+  .teacher { display: grid; gap: var(--s3); }
+  @media (min-width: 640px) { .teacher { grid-template-columns: 220px 1fr; gap: var(--s4); align-items: start; } }
+  .teacher + .teacher { margin-top: var(--s6); }
+  .facts { list-style: none; padding: 0; margin: 0 0 var(--s3); display: grid; gap: .35rem; font-size: var(--fs-small); }
+  .facts b { font-weight: 500; color: var(--grey); font-size: var(--fs-micro);
+             letter-spacing: .14em; text-transform: uppercase; margin-right: .6rem; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="bm" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#A87F45"/><stop offset=".5" stop-color="#E3C68D"/><stop offset="1" stop-color="#C9A063"/>
+        </linearGradient></defs>
+        <g fill="url(#bm)">
+          <polygon points="4,58 60,58 55,44 9,44"/>
+          <polygon points="12,41 52,41 47,27 17,27"/>
+          <polygon points="20,24 44,24 39,10 25,10"/>
+        </g>
+        <line x1="32" y1="10" x2="32" y2="58" stroke="var(--blanc)" stroke-width="2.6"/>
+      </svg>
+      <span>
+        <span class="brand-name">ACADÉMIE BABEL</span>
+        <span class="brand-sub">DELF · DALF · TCF</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">選單</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="exams.html">法語檢定</a></li>
+        <li><a href="courses.html">課程與課表</a></li>
+        <li><a href="teachers.html" aria-current="page">師資</a></li>
+        <li><a href="contact.html">聯絡</a></li>
+        <li><a class="nav-cta" href="quiz.html">免費分級測驗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="wrap" style="padding-bottom:var(--s3)">
+    <p class="kicker">Notre équipe</p>
+    <h1>師資</h1>
+    <p class="lede">全體法語母語教師，皆具 FLE（<span class="fr">français langue étrangère</span>，法語作為外語教學）資格。以下資料為示範內容。<!-- TODO: 換成真實師資資料與照片，並取得肖像使用同意 --></p>
+  </section>
+
+  <section class="wrap reveal">
+
+    <article class="teacher" id="camille">
+      <div class="photo"><span class="initials" aria-hidden="true">CB</span><span class="sr-only">Camille Béranger 照片（尚未提供）</span></div>
+      <div>
+        <p class="kicker">A1 · A2 · 一對一</p>
+        <h2 style="margin-bottom:.75rem">Camille Béranger</h2>
+        <ul class="facts">
+          <li><b>母語</b>法語（法國 里昂）</li>
+          <li><b>專長考試</b>DELF A1 · A2 · TCF TP</li>
+          <li><b>可授課時段</b>週二・四晚間、週五全日</li>
+          <li><b>授課語言</b>中法雙語（初階班會用中文解釋文法）</li>
+        </ul>
+        <p>里昂第二大學 FLE 碩士，來台第六年。專門帶完全沒有基礎的成人班，把發音與 conjugaison 拆成小步驟，讓學生在第一堂課就能開口說完整的句子。相信初學階段最重要的不是正確，而是不怕。</p>
+      </div>
+    </article>
+
+    <article class="teacher" id="julien">
+      <div class="photo"><span class="initials" aria-hidden="true">JM</span><span class="sr-only">Julien Marchand 照片（尚未提供）</span></div>
+      <div>
+        <p class="kicker">A2 · B1 · TCF</p>
+        <h2 style="margin-bottom:.75rem">Julien Marchand</h2>
+        <ul class="facts">
+          <li><b>母語</b>法語（比利時 列日）</li>
+          <li><b>專長考試</b>DELF B1 · TCF SO · TCF Canada</li>
+          <li><b>可授課時段</b>週一・三晚間、週日上午</li>
+          <li><b>授課語言</b>法語為主，必要時輔以英文</li>
+        </ul>
+        <p>前移民輔導機構語言顧問，熟悉 TCF Canada 與 NCLC 級距的對應關係。上課節奏快，強調在時間壓力下把答案講完整；線上課的教材與錄音在課後開放兩週複習。</p>
+      </div>
+    </article>
+
+    <article class="teacher" id="sophie">
+      <div class="photo"><span class="initials" aria-hidden="true">SL</span><span class="sr-only">Sophie Lambert 照片（尚未提供）</span></div>
+      <div>
+        <p class="kicker">B2 · C1 · 衝刺班</p>
+        <h2 style="margin-bottom:.75rem">Sophie Lambert</h2>
+        <ul class="facts">
+          <li><b>母語</b>法語（法國 波爾多）</li>
+          <li><b>專長考試</b>DELF B2 · DALF C1 · C2</li>
+          <li><b>可授課時段</b>週一・四晚間、週六全日</li>
+          <li><b>授課語言</b>全法語</li>
+        </ul>
+        <p>具 DELF／DALF 監考與閱卷資格<!-- TODO: 確認資格年份與核發單位 -->，帶過八屆 B2 衝刺班。作文批改以評分表逐項對照，指出的不只是錯誤，而是這一句在評分表上失分的位置。</p>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="wrap"><div class="rule-tower" role="separator" aria-hidden="true">
+    <svg viewBox="0 0 64 64"><g fill="var(--gold)"><polygon points="8,54 56,54 52,42 12,42"/><polygon points="14,39 50,39 46,27 18,27"/><polygon points="20,24 44,24 40,12 24,12"/></g><line x1="32" y1="12" x2="32" y2="54" stroke="var(--blanc)" stroke-width="3"/></svg>
+  </div></div>
+
+  <section class="wrap reveal" style="text-align:center">
+    <h2>想知道哪位老師適合你？</h2>
+    <p class="lede" style="margin-inline:auto">做完分級測驗，把結果碼私訊給我們，我們會依你的弱項建議師資與班別。</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="quiz.html">做分級測驗</a>
+      <a class="btn btn-ghost" href="courses.html">看課表</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand-name">ACADÉMIE BABEL</span>
+        <p class="muted" style="font-size:var(--fs-small);margin-top:.6rem">法語學院 · DELF · DALF · TCF · TEF 檢定準備</p>
+        <div class="tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div>
+        <h4>網站</h4>
+        <ul>
+          <li><a href="exams.html">法語檢定介紹</a></li>
+          <li><a href="courses.html">課程與課表</a></li>
+          <li><a href="teachers.html">師資</a></li>
+          <li><a href="quiz.html">免費分級測驗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>聯絡</h4>
+        <ul>
+          <li><a href="https://instagram.com/academie_babel" rel="noopener">Instagram @academie_babel</a></li>
+          <li><a href="mailto:bonjour@academie-babel.example.com">bonjour@academie-babel.example.com</a><!-- TODO: 換成實際 Email --></li>
+          <li><a href="contact.html">上課地點與時間</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> ACADÉMIE BABEL</span>
+      <span>本站考試資訊僅供參考，正式規定以 France Éducation international 及各主辦單位公告為準。</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

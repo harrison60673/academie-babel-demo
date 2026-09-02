@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>免費法語分級測驗｜自適應 CEFR 程度檢測 — ACADÉMIE BABEL</title>
+<meta name="description" content="免費線上法語分級測驗：自適應出題，最多 40 題，約 15 分鐘。測完給你 CEFR 判定等級、四技能得分、弱項診斷與推薦班級。純前端計分，不蒐集個資。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="免費法語分級測驗 — ACADÉMIE BABEL">
+<meta property="og:description" content="十五分鐘測出你的 CEFR 等級，附四技能分析與課程建議。">
+<meta property="og:image" content="assets/og-template.svg">
+<meta property="og:url" content="https://academie-babel.example.com/quiz.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+
+<header class="site-head no-print">
+  <div class="wrap head-inner">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="bm" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#A87F45"/><stop offset=".5" stop-color="#E3C68D"/><stop offset="1" stop-color="#C9A063"/>
+        </linearGradient></defs>
+        <g fill="url(#bm)">
+          <polygon points="4,58 60,58 55,44 9,44"/>
+          <polygon points="12,41 52,41 47,27 17,27"/>
+          <polygon points="20,24 44,24 39,10 25,10"/>
+        </g>
+        <line x1="32" y1="10" x2="32" y2="58" stroke="var(--blanc)" stroke-width="2.6"/>
+      </svg>
+      <span>
+        <span class="brand-name">ACADÉMIE BABEL</span>
+        <span class="brand-sub">DELF · DALF · TCF</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">選單</button>
+    <nav class="site-nav" id="site-nav" aria-label="主要導覽">
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="exams.html">法語檢定</a></li>
+        <li><a href="courses.html">課程與課表</a></li>
+        <li><a href="teachers.html">師資</a></li>
+        <li><a href="contact.html">聯絡</a></li>
+        <li><a class="nav-cta" href="quiz.html" aria-current="page">免費分級測驗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap">
+    <div class="quiz-shell">
+
+      <!-- ============ 左側：巴別塔 ============ -->
+      <aside class="quiz-aside">
+        <svg class="tower progress" id="quiz-tower" viewBox="-110 0 510 650" role="img" aria-label="巴別塔，由下而上分為 A1 至 C2 六個 CEFR 等級，每層有拱廊與可攀爬的坡道">
+          <defs>
+            <linearGradient id="tg2" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#A87F45"/><stop offset=".5" stop-color="#E3C68D"/><stop offset="1" stop-color="#C9A063"/>
+            </linearGradient>
+          </defs>
+          <g class="plinth"><rect x="20" y="600" width="360" height="9"/><rect x="34" y="609" width="332" height="7"/></g>
+          <g class="tiers" fill="url(#tg2)">
+            <g class="tier">
+              <g class="stone">
+                <polygon points="40,600 360,600 347,526 53,526"/>
+                <rect x="45" y="516" width="310" height="10"/>
+                <g class="arch"><path d="M79 588 L79 571 A7 7 0 0 1 93 571 L93 588 Z"/><path d="M117 588 L117 571 A7 7 0 0 1 131 571 L131 588 Z"/><path d="M155 588 L155 571 A7 7 0 0 1 169 571 L169 588 Z"/><path d="M193 588 L193 571 A7 7 0 0 1 207 571 L207 588 Z"/><path d="M231 588 L231 571 A7 7 0 0 1 245 571 L245 588 Z"/><path d="M269 588 L269 571 A7 7 0 0 1 283 571 L283 588 Z"/><path d="M307 588 L307 571 A7 7 0 0 1 321 571 L321 588 Z"/></g>
+                <path class="ramp" d="M52 594 L337 534"/>
+              </g>
+              <line class="spine" x1="200" y1="516" x2="200" y2="600"/>
+              <line class="leader" x1="10" y1="570" x2="32" y2="570"/>
+              <text class="tier-label" x="2" y="576" text-anchor="end">A1</text>
+            </g>
+            <g class="tier">
+              <g class="stone">
+                <polygon points="58,516 342,516 329,442 71,442"/>
+                <rect x="63" y="432" width="274" height="10"/>
+                <g class="arch"><path d="M98 504 L98 487 A7 7 0 0 1 112 487 L112 504 Z"/><path d="M136 504 L136 487 A7 7 0 0 1 150 487 L150 504 Z"/><path d="M174 504 L174 487 A7 7 0 0 1 188 487 L188 504 Z"/><path d="M212 504 L212 487 A7 7 0 0 1 226 487 L226 504 Z"/><path d="M250 504 L250 487 A7 7 0 0 1 264 487 L264 504 Z"/><path d="M288 504 L288 487 A7 7 0 0 1 302 487 L302 504 Z"/></g>
+                <path class="ramp" d="M330 510 L81 450"/>
+              </g>
+              <line class="spine" x1="200" y1="432" x2="200" y2="516"/>
+              <line class="leader" x1="28" y1="486" x2="50" y2="486"/>
+              <text class="tier-label" x="20" y="492" text-anchor="end">A2</text>
+            </g>
+            <g class="tier">
+              <g class="stone">
+                <polygon points="76,432 324,432 311,358 89,358"/>
+                <rect x="81" y="348" width="238" height="10"/>
+                <g class="arch"><path d="M117 420 L117 403 A7 7 0 0 1 131 403 L131 420 Z"/><path d="M155 420 L155 403 A7 7 0 0 1 169 403 L169 420 Z"/><path d="M193 420 L193 403 A7 7 0 0 1 207 403 L207 420 Z"/><path d="M231 420 L231 403 A7 7 0 0 1 245 403 L245 420 Z"/><path d="M269 420 L269 403 A7 7 0 0 1 283 403 L283 420 Z"/></g>
+                <path class="ramp" d="M88 426 L301 366"/>
+              </g>
+              <line class="spine" x1="200" y1="348" x2="200" y2="432"/>
+              <line class="leader" x1="46" y1="402" x2="68" y2="402"/>
+              <text class="tier-label" x="38" y="408" text-anchor="end">B1</text>
+            </g>
+            <g class="tier">
+              <g class="stone">
+                <polygon points="94,348 306,348 293,274 107,274"/>
+                <rect x="99" y="264" width="202" height="10"/>
+                <g class="arch"><path d="M136 336 L136 319 A7 7 0 0 1 150 319 L150 336 Z"/><path d="M174 336 L174 319 A7 7 0 0 1 188 319 L188 336 Z"/><path d="M212 336 L212 319 A7 7 0 0 1 226 319 L226 336 Z"/><path d="M250 336 L250 319 A7 7 0 0 1 264 319 L264 336 Z"/></g>
+                <path class="ramp" d="M294 342 L117 282"/>
+              </g>
+              <line class="spine" x1="200" y1="264" x2="200" y2="348"/>
+              <line class="leader" x1="64" y1="318" x2="86" y2="318"/>
+              <text class="tier-label" x="56" y="324" text-anchor="end">B2</text>
+            </g>
+            <g class="tier">
+              <g class="stone">
+                <polygon points="112,264 288,264 275,190 125,190"/>
+                <rect x="117" y="180" width="166" height="10"/>
+                <g class="arch"><path d="M155 252 L155 235 A7 7 0 0 1 169 235 L169 252 Z"/><path d="M193 252 L193 235 A7 7 0 0 1 207 235 L207 252 Z"/><path d="M231 252 L231 235 A7 7 0 0 1 245 235 L245 252 Z"/></g>
+                <path class="ramp" d="M124 258 L265 198"/>
+              </g>
+              <line class="spine" x1="200" y1="180" x2="200" y2="264"/>
+              <line class="leader" x1="82" y1="234" x2="104" y2="234"/>
+              <text class="tier-label" x="74" y="240" text-anchor="end">C1</text>
+            </g>
+            <g class="tier">
+              <g class="stone">
+                <polygon points="130,180 270,180 257,106 143,106"/>
+                <rect x="135" y="96" width="130" height="10"/>
+                <g class="arch"><path d="M174 168 L174 151 A7 7 0 0 1 188 151 L188 168 Z"/><path d="M212 168 L212 151 A7 7 0 0 1 226 151 L226 168 Z"/></g>
+                <path class="ramp" d="M258 174 L153 114"/>
+              </g>
+              <line class="spine" x1="200" y1="96" x2="200" y2="180"/>
+              <line class="leader" x1="100" y1="150" x2="122" y2="150"/>
+              <text class="tier-label" x="92" y="156" text-anchor="end">C2</text>
+            </g>
+            <g class="tier lantern">
+              <g class="stone">
+                <polygon points="152,106 248,106 234,58 166,58"/>
+                <rect x="158" y="48" width="84" height="10"/>
+              </g>
+              <line class="spine" x1="200" y1="48" x2="200" y2="106"/>
+              <line class="finial" x1="200" y1="48" x2="200" y2="16"/>
+            </g>
+          </g>
+        </svg>
+        <p class="muted" style="font-size:var(--fs-micro);margin-top:.75rem" id="tier-count" role="status" aria-live="polite">尚未點亮任何一層</p>
+      </aside>
+
+      <!-- ============ 右側：測驗本體 ============ -->
+      <div>
+
+        <!-- ---- 起始畫面 ---- -->
+        <div id="quiz-intro">
+          <p class="kicker">Test de niveau</p>
+          <h1>法語程度測驗</h1>
+          <p class="lede">自適應出題：先做十題定位，答得好就往上一層，答不動就停。最多四十題，約十五分鐘。</p>
+
+          <p class="notice"><strong>請先了解：</strong>本測驗為分級參考，不等同 DELF / DALF / TCF 正式成績。正式分班將另安排口試。</p>
+
+          <div class="cols cols-3" style="margin-top:2.5rem">
+            <div class="feature">
+              <span class="num">40</span>
+              <h3>最多四十題</h3>
+              <p class="muted">每層最多十題，答對率低於六成就停止，不會讓你硬撐到底。</p>
+            </div>
+            <div class="feature">
+              <span class="num">×4</span>
+              <h3>四技能分析</h3>
+              <p class="muted">文法、字彙、閱讀、聽力分開計分，測完直接看出弱在哪裡。</p>
+            </div>
+            <div class="feature">
+              <span class="num">↺</span>
+              <h3>可以續答</h3>
+              <p class="muted">進度存在你自己的瀏覽器裡，關掉分頁再回來可以接著做。</p>
+            </div>
+          </div>
+
+          <ul class="muted" style="font-size:var(--fs-small);margin-top:2rem;padding-left:1.1rem">
+            <li>作答期間不顯示對錯，避免用猜的往上推。</li>
+            <li>單題不限時，但全程會顯示總計時。</li>
+            <li>聽力題的音檔每題最多播放兩次。</li>
+            <li>所有計分都在你的瀏覽器裡完成，我們沒有後端，也收不到你的答案。</li>
+          </ul>
+
+          <p class="notice" id="resume-note" hidden></p>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" id="btn-start" type="button">開始測驗</button>
+            <button class="btn btn-ghost" id="btn-resume" type="button" hidden>接著上次繼續</button>
+          </div>
+        </div>
+
+        <!-- ---- 作答中 ---- -->
+        <div id="quiz-run" hidden>
+          <div class="quiz-stat">
+            <span>第 <span id="q-index">1</span> 題 · 最多 40 題</span>
+            <span id="q-stage">定位階段 A1–A2</span>
+            <span>計時 <span id="timer">00:00</span></span>
+          </div>
+          <div class="progress-track" id="progress-track" role="progressbar" aria-label="作答進度" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+
+          <div style="margin-top:2.5rem">
+            <p class="q-skill" id="q-skill">文法 Grammaire</p>
+            <h2 class="q-stem" id="q-stem" tabindex="-1">—</h2>
+            <div id="q-audio" hidden></div>
+            <div class="opts" id="opts" role="group" aria-label="選項"></div>
+            <div class="btn-row">
+              <button class="btn btn-primary" id="btn-next" type="button" disabled>下一題</button>
+              <button class="btn btn-ghost" type="button" data-restart>重新開始</button>
+            </div>
+            <p class="muted" style="font-size:var(--fs-micro);margin-top:1rem">作答期間不顯示對錯，全部答完才會一次公布。</p>
+          </div>
+        </div>
+
+        <!-- ---- 結果 ---- -->
+        <div id="quiz-result" hidden>
+          <p class="kicker">Résultat</p>
+          <p class="muted" style="margin:0">你的判定等級</p>
+          <p class="result-level" id="res-level">B1</p>
+          <p class="lede" id="res-note"></p>
+          <p style="font-family:var(--font-display);font-size:1.4rem;color:var(--gold-deep)" id="res-climb"></p>
+          <p class="muted" style="font-size:var(--fs-small)">
+            共作答 <span id="res-count">0</span> 題，答對 <span id="res-correct">0</span> 題，用時 <span id="res-time">00:00</span>。
+          </p>
+
+          <p class="notice">本測驗為分級參考，不等同 DELF / DALF / TCF 正式成績。正式分班將另安排口試。</p>
+
+          <h2 style="margin-top:3rem">四技能得分</h2>
+          <div id="res-bars" style="max-width:38rem"></div>
+
+          <h2 style="margin-top:3rem">你的弱項</h2>
+          <p id="res-weak"></p>
+
+          <h2 style="margin-top:3rem" class="no-print">建議課程</h2>
+          <p class="no-print">依判定等級，我們建議從下面這個班開始。若你的四技能落差很大，一對一課會更有效率。</p>
+          <div class="btn-row no-print">
+            <a class="btn btn-primary" id="res-course" href="courses.html">看課程</a>
+            <a class="btn btn-ghost" href="courses.html#class-private">一對一客製課</a>
+          </div>
+
+          <h2 style="margin-top:3rem">你的結果碼</h2>
+          <p class="muted" style="font-size:var(--fs-small)">這組代碼記錄了你的等級、四技能得分與逐題對錯，不含任何個人資料。</p>
+          <p class="code-box" id="res-code">—</p>
+          <div class="btn-row no-print">
+            <button class="btn btn-primary" id="btn-copy" type="button">複製結果碼</button>
+            <a class="btn btn-ghost" href="https://instagram.com/academie_babel" rel="noopener">把結果碼私訊給我們，免費取得學習規劃建議</a>
+          </div>
+
+          <h2 style="margin-top:3rem">逐題檢討</h2>
+          <div id="res-review"></div>
+
+          <div class="btn-row no-print">
+            <button class="btn btn-ghost" id="btn-print" type="button">下載成績單（列印為 PDF）</button>
+            <button class="btn btn-ghost" type="button" data-restart>重新測一次</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot no-print">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand-name">ACADÉMIE BABEL</span>
+        <p class="muted" style="font-size:var(--fs-small);margin-top:.6rem">法語學院 · DELF · DALF · TCF · TEF 檢定準備</p>
+        <div class="tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div>
+        <h4>網站</h4>
+        <ul>
+          <li><a href="exams.html">法語檢定介紹</a></li>
+          <li><a href="courses.html">課程與課表</a></li>
+          <li><a href="teachers.html">師資</a></li>
+          <li><a href="quiz.html">免費分級測驗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>聯絡</h4>
+        <ul>
+          <li><a href="https://instagram.com/academie_babel" rel="noopener">Instagram @academie_babel</a></li>
+          <li><a href="mailto:bonjour@academie-babel.example.com">bonjour@academie-babel.example.com</a><!-- TODO: 換成實際 Email --></li>
+          <li><a href="contact.html">上課地點與時間</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> ACADÉMIE BABEL</span>
+      <span>本站考試資訊僅供參考，正式規定以 France Éducation international 及各主辦單位公告為準。</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/quiz-data.js"></script>
+<script src="js/result-code.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>
