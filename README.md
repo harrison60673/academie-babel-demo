@@ -21,6 +21,9 @@ favicon.svg       巴別塔簡化版
 sitemap.xml       上線前要改網域
 robots.txt        上線前要改網域
 assets/
+  academie-babel-logo.jpg              原始白底品牌圖，供社群分享預覽
+  academie-babel-logo-transparent.png  透明底深色字版，供淺色頁首使用
+  academie-babel-logo-dark.png         透明底白字版，供暗色背景使用
   og-template.svg 可重複使用的 OG image 版型
   audio/          測驗聽力題音檔（見該資料夾的 README.txt）
 js/

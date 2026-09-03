@@ -11,10 +11,10 @@
 <meta property="og:image" content="assets/academie-babel-logo.jpg">
 <meta property="og:url" content="https://harrison60673.github.io/academie-babel-demo/quiz.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/academie-babel-logo.jpg" type="image/jpeg">
+<link rel="icon" href="assets/academie-babel-logo-transparent.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
 <header class="site-head no-print">
   <div class="wrap head-inner">
     <a class="brand" href="index.html" aria-label="ACADÉMIE BABEL 首頁">
-      <img class="brand-logo" src="assets/academie-babel-logo.jpg" alt="ACADÉMIE BABEL">
+      <img class="brand-logo" src="assets/academie-babel-logo-transparent.png" alt="ACADÉMIE BABEL">
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">選單</button>
     <nav class="site-nav" id="site-nav" aria-label="主要導覽">
@@ -48,7 +48,7 @@
         <svg class="tower progress" id="quiz-tower" viewBox="-110 0 510 650" role="img" aria-label="巴別塔，由下而上分為 A1 至 C2 六個 CEFR 等級，每層有拱廊與可攀爬的坡道">
           <defs>
             <linearGradient id="tg2" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#A87F45"/><stop offset=".5" stop-color="#E3C68D"/><stop offset="1" stop-color="#C9A063"/>
+              <stop offset="0" stop-color="#131E4C"/><stop offset=".5" stop-color="#4A5B9C"/><stop offset="1" stop-color="#A62A2A"/>
             </linearGradient>
           </defs>
           <g class="plinth"><rect x="20" y="600" width="360" height="9"/><rect x="34" y="609" width="332" height="7"/></g>
@@ -206,7 +206,7 @@
           <p class="muted" style="margin:0">你的判定等級</p>
           <p class="result-level" id="res-level">B1</p>
           <p class="lede" id="res-note"></p>
-          <p style="font-family:var(--font-display);font-size:1.4rem;color:var(--gold-deep)" id="res-climb"></p>
+          <p style="font-family:var(--font-display);font-size:1.4rem;color:var(--accent-deep)" id="res-climb"></p>
           <p class="muted" style="font-size:var(--fs-small)">
             共作答 <span id="res-count">0</span> 題，答對 <span id="res-correct">0</span> 題，用時 <span id="res-time">00:00</span>。
           </p>

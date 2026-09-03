@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>結果碼解碼（內部用） — ACADÉMIE BABEL</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="assets/academie-babel-logo.jpg" type="image/jpeg">
+<link rel="icon" href="assets/academie-babel-logo-transparent.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
   .input { font: inherit; width: 100%; max-width: 34rem; padding: .8rem 1rem;
            background: var(--paper-2); color: var(--ink);
-           border: 1px solid var(--gold-hair); border-radius: var(--radius);
+           border: 1px solid var(--accent-hair); border-radius: var(--radius);
            font-family: ui-monospace, Menlo, monospace; letter-spacing: .06em; }
-  .input:focus-visible { border-color: var(--gold); }
+  .input:focus-visible { border-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -24,7 +24,7 @@
 <header class="site-head">
   <div class="wrap head-inner">
     <a class="brand" href="index.html" aria-label="ACADÉMIE BABEL 首頁">
-      <img class="brand-logo" src="assets/academie-babel-logo.jpg" alt="ACADÉMIE BABEL">
+      <img class="brand-logo" src="assets/academie-babel-logo-transparent.png" alt="ACADÉMIE BABEL">
     </a>
   </div>
 </header>
@@ -51,7 +51,7 @@
     </div>
 
     <div id="out" hidden style="margin-top:3rem">
-      <h2>判定等級 <span id="d-level" style="color:var(--gold-deep)"></span></h2>
+      <h2>判定等級 <span id="d-level" style="color:var(--accent-deep)"></span></h2>
       <p class="muted" style="font-size:var(--fs-small)">作答 <span id="d-count"></span> 題，答對 <span id="d-correct"></span> 題（<span id="d-rate"></span>%）。</p>
 
       <h3 style="margin-top:2rem">四技能得分</h3>
@@ -99,10 +99,10 @@
       var label = document.createElement('span');
       label.textContent = t(SKILL_ZH[s]);
       var track = document.createElement('span');
-      track.style.cssText = 'display:block;height:4px;background:var(--gold-hair);position:relative';
+      track.style.cssText = 'display:block;height:4px;background:var(--accent-hair);position:relative';
       if (v >= 0) {
         var fill = document.createElement('span');
-        fill.style.cssText = 'position:absolute;inset:0 auto 0 0;background:var(--gold);width:' + v + '%';
+        fill.style.cssText = 'position:absolute;inset:0 auto 0 0;background:var(--accent);width:' + v + '%';
         track.appendChild(fill);
       }
       var num = document.createElement('span');
@@ -139,7 +139,7 @@
         String(i + 1),
         q ? q.id : '—',
         q ? t(SKILL_ZH[q.skill] || q.skill) : '—',
-        q ? q.question : '（題庫已變動，無法對應）',
+        q ? q.question : t('（題庫已變動，無法對應）'),
         m ? '✓ ' + t('答對') : '✗ ' + t('答錯')
       ];
       cells.forEach(function (c, j) {

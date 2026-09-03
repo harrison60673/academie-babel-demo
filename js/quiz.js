@@ -230,12 +230,12 @@
       svg.style.width = '100%'; svg.style.height = '8px';
       var bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       bg.setAttribute('x', '0'); bg.setAttribute('y', '3'); bg.setAttribute('width', '100');
-      bg.setAttribute('height', '2'); bg.setAttribute('fill', 'var(--gold-hair)');
+      bg.setAttribute('height', '2'); bg.setAttribute('fill', 'var(--accent-hair)');
       svg.appendChild(bg);
       if (v >= 0) {
         var fg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
         fg.setAttribute('x', '0'); fg.setAttribute('y', '2'); fg.setAttribute('width', String(v));
-        fg.setAttribute('height', '4'); fg.setAttribute('fill', 'var(--gold)');
+        fg.setAttribute('height', '4'); fg.setAttribute('fill', 'var(--accent)');
         svg.appendChild(fg);
       }
       var num = document.createElement('span');
