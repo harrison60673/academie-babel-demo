@@ -206,6 +206,7 @@
     'France Éducation international（法國教育部）': ['France Éducation international (French Ministry of Education)', 'France Éducation international (ministère français de l’Éducation)', 'France Éducation international (وزارت آموزش فرانسه)'],
     '巴黎法蘭西島工商會 CCI Paris Île-de-France': ['Paris Île-de-France Chamber of Commerce (CCI)', 'CCI Paris Île-de-France', 'اتاق بازرگانی پاریس ایل-دو-فرانس'],
     '四項全考：聽力、閱讀、寫作、口說': ['All four: listening, reading, writing and speaking', 'Les quatre : compréhension et production, écrites et orales', 'هر چهار مهارت: شنیدار، خواندن، نوشتار و گفتار'],
+    '聽力、閱讀、寫作、口說': ['Listening, reading, writing and speaking', 'Compréhension et production, écrites et orales', 'شنیدار، خواندن، نوشتار و گفتار'],
     '三個必考模組，寫作口說可選': ['Three required modules; writing and speaking optional', 'Trois modules obligatoires ; écrit et oral facultatifs', 'سه بخش اجباری؛ نوشتار و گفتار اختیاری'],
     '四科各 25 分，共 100 分': ['25 points per skill, 100 total', '25 points par compétence, 100 au total', '۲۵ امتیاز برای هر مهارت، مجموع ۱۰۰'],
     '兩科各 50 分，共 100 分': ['50 points per section, 100 total', '50 points par épreuve, 100 au total', '۵۰ امتیاز برای هر بخش، مجموع ۱۰۰'],
@@ -370,6 +371,9 @@
     '下一題': ['Next question', 'Question suivante', 'پرسش بعدی'],
     '你的判定等級': ['Your estimated level', 'Votre niveau estimé', 'سطح برآوردشدهٔ شما'],
     '這一層塔': ['This tower level', 'Cet étage de la tour', 'این طبقهٔ برج'],
+    '共作答': ['Answered', 'Total:', 'در مجموع'],
+    '共作答 {count} 題，答對 {correct} 題，用時 {time}。': ['Answered {count} questions, with {correct} correct, in {time}.', '{count} questions traitées, dont {correct} correctes, en {time}.', 'در مجموع به {count} پرسش پاسخ دادید؛ {correct} پاسخ درست در {time}.'],
+    '作答 {count} 題，答對 {correct} 題（{rate}%）。': ['Answered {count} questions, with {correct} correct ({rate}%).', '{count} questions traitées, dont {correct} correctes ({rate} %).', 'تعداد پاسخ‌ها: {count}؛ پاسخ‌های درست: {correct} ({rate}٪).'],
     '題，用時': ['questions in', 'questions en', 'پرسش در'],
     '題，答對': ['questions, correct', 'questions, bonnes réponses', 'پرسش، پاسخ درست'],
     '你的弱項': ['Skills to strengthen', 'Points à renforcer', 'مهارت‌های قابل‌تقویت'],
@@ -487,6 +491,12 @@
     '週一・三 20:00–21:30／Julien Marchand／NT$13,800': ['Mon & Wed 20:00–21:30 / Julien Marchand / NT$13,800', 'Lun. et mer. 20 h–21 h 30 / Julien Marchand / 13 800 NT$', 'دوشنبه و چهارشنبه ۲۰:۰۰ تا ۲۱:۳۰ / Julien Marchand / ۱۳٬۸۰۰ دلار تایوان'],
     '週一・四 19:30–21:30／Sophie Lambert／NT$18,500': ['Mon & Thu 19:30–21:30 / Sophie Lambert / NT$18,500', 'Lun. et jeu. 19 h 30–21 h 30 / Sophie Lambert / 18 500 NT$', 'دوشنبه و پنج‌شنبه ۱۹:۳۰ تا ۲۱:۳۰ / Sophie Lambert / ۱۸٬۵۰۰ دلار تایوان'],
     '週二・四 19:30–21:30／Camille Béranger／NT$12,800': ['Tue & Thu 19:30–21:30 / Camille Béranger / NT$12,800', 'Mar. et jeu. 19 h 30–21 h 30 / Camille Béranger / 12 800 NT$', 'سه‌شنبه و پنج‌شنبه ۱۹:۳۰ تا ۲۱:۳۰ / Camille Béranger / ۱۲٬۸۰۰ دلار تایوان'],
+    '週三 19:00–21:00／Julien Marchand／NT$16,500': ['Wed 19:00–21:00 / Julien Marchand / NT$16,500', 'Mer. 19 h–21 h / Julien Marchand / 16 500 NT$', 'چهارشنبه ۱۹:۰۰ تا ۲۱:۰۰ / Julien Marchand / ۱۶٬۵۰۰ دلار تایوان'],
+    '週六 14:00–17:00／Sophie Lambert／NT$21,000': ['Sat 14:00–17:00 / Sophie Lambert / NT$21,000', 'Sam. 14 h–17 h / Sophie Lambert / 21 000 NT$', 'شنبه ۱۴:۰۰ تا ۱۷:۰۰ / Sophie Lambert / ۲۱٬۰۰۰ دلار تایوان'],
+    '週六 10:00–13:00／Sophie Lambert／NT$14,000': ['Sat 10:00–13:00 / Sophie Lambert / NT$14,000', 'Sam. 10 h–13 h / Sophie Lambert / 14 000 NT$', 'شنبه ۱۰:۰۰ تا ۱۳:۰۰ / Sophie Lambert / ۱۴٬۰۰۰ دلار تایوان'],
+    '週日 10:00–12:30／Julien Marchand／NT$11,500': ['Sun 10:00–12:30 / Julien Marchand / NT$11,500', 'Dim. 10 h–12 h 30 / Julien Marchand / 11 500 NT$', 'یکشنبه ۱۰:۰۰ تا ۱۲:۳۰ / Julien Marchand / ۱۱٬۵۰۰ دلار تایوان'],
+    '週三 19:00–21:00／16 週／Julien Marchand': ['Wed 19:00–21:00 / 16 weeks / Julien Marchand', 'Mer. 19 h–21 h / 16 semaines / Julien Marchand', 'چهارشنبه ۱۹:۰۰ تا ۲۱:۰۰ / ۱۶ هفته / Julien Marchand'],
+    '週六 10:00–13:00／8 週／Sophie Lambert': ['Sat 10:00–13:00 / 8 weeks / Sophie Lambert', 'Sam. 10 h–13 h / 8 semaines / Sophie Lambert', 'شنبه ۱۰:۰۰ تا ۱۳:۰۰ / ۸ هفته / Sophie Lambert'],
     'B2 · C1 · 衝刺班': ['B2 · C1 · Intensive courses', 'B2 · C1 · Stages intensifs', 'B2 · C1 · دوره‌های فشرده'],
     'Camille Béranger 照片（尚未提供）': ['Photo of Camille Béranger (not yet provided)', 'Photo de Camille Béranger (non fournie)', 'عکس Camille Béranger (هنوز ارائه نشده)'],
     'Julien Marchand 照片（尚未提供）': ['Photo of Julien Marchand (not yet provided)', 'Photo de Julien Marchand (non fournie)', 'عکس Julien Marchand (هنوز ارائه نشده)'],
@@ -649,6 +659,14 @@
     });
   }
 
+  /* Keep Latin course codes, names, times, prices and URLs in their natural
+     left-to-right order when they appear inside Persian sentences. */
+  function isolateLtrRuns(value) {
+    var clean = String(value).replace(/[\u2066\u2069]/g, '');
+    var latinRun = /[A-Za-zÀ-ɏ0-9\u0660-\u0669\u06F0-\u06F9][A-Za-zÀ-ɏ0-9\u0660-\u0669\u06F0-\u06F9\u066B\u066C@._:+$%#,\/\\'’–—-]*(?:[ \u00a0][A-Za-zÀ-ɏ0-9\u0660-\u0669\u06F0-\u06F9][A-Za-zÀ-ɏ0-9\u0660-\u0669\u06F0-\u06F9\u066B\u066C@._:+$%#,\/\\'’–—-]*)*/g;
+    return clean.replace(latinRun, '\u2066$&\u2069');
+  }
+
   function t(source, vars) {
     var value = source;
     if (locale !== DEFAULT_LOCALE) {
@@ -662,7 +680,8 @@
         if (!/[\u3400-\u9fff]/.test(compound)) value = compound;
       }
     }
-    return interpolate(value, vars);
+    value = interpolate(value, vars);
+    return locale === 'fa-IR' ? isolateLtrRuns(value) : value;
   }
 
   function translateTextNode(node) {

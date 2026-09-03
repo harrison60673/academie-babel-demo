@@ -239,7 +239,7 @@
         svg.appendChild(fg);
       }
       var num = document.createElement('span');
-      num.style.textAlign = 'right';
+      num.style.textAlign = 'end';
       num.textContent = v < 0 ? '—' : v;
       row.appendChild(label); row.appendChild(svg); row.appendChild(num);
       mount.appendChild(row);
@@ -276,9 +276,11 @@
     $('res-note').textContent = level === 'B2+'
       ? tr('你的表現已達 B2 以上。實際落點可能是 C1，需另安排口試才能確認。')
       : tr('判定等級 {level}（{name}）。', { level: level, name: ({A1:'Découverte',A2:'Survie',B1:'Seuil',B2:'Avancé'}[level] || '') });
-    $('res-count').textContent = state.asked.length;
-    $('res-correct').textContent = marks.filter(Boolean).length;
-    $('res-time').textContent = fmt(state.elapsed);
+    $('res-summary').textContent = tr('共作答 {count} 題，答對 {correct} 題，用時 {time}。', {
+      count: state.asked.length,
+      correct: marks.filter(Boolean).length,
+      time: fmt(state.elapsed)
+    });
 
     lightTower(litFor(level));
     var climb = $('res-climb');
@@ -303,15 +305,16 @@
       var sum = document.createElement('summary');
       sum.innerHTML = '<span class="' + (ok ? 'badge-ok' : 'badge-no') + '">' + (ok ? tr('答對') : tr('答錯')) + '</span>';
       var stem = document.createElement('span');
+      stem.className = 'review-stem';
       stem.textContent = (i + 1) + '. ' + q.question;
       sum.appendChild(stem);
       d.appendChild(sum);
       var body = document.createElement('div');
       body.style.cssText = 'font-size:var(--fs-small);padding:.5rem 0 .25rem';
       var correctIdx = DATA.decodeAnswer(q);
-      body.innerHTML = '<p style="margin:.25rem 0"><strong>' + escapeHtml(tr('你的答案：')) + '</strong>' +
-        escapeHtml(q.options[state.answers[i]] || tr('（未作答）')) + '</p>' +
-        '<p style="margin:.25rem 0"><strong>' + escapeHtml(tr('正解：')) + '</strong>' + escapeHtml(q.options[correctIdx]) + '</p>' +
+      body.innerHTML = '<p style="margin:.25rem 0"><strong>' + escapeHtml(tr('你的答案：')) + '</strong><bdi dir="ltr">' +
+        escapeHtml(q.options[state.answers[i]] || tr('（未作答）')) + '</bdi></p>' +
+        '<p style="margin:.25rem 0"><strong>' + escapeHtml(tr('正解：')) + '</strong><bdi dir="ltr">' + escapeHtml(q.options[correctIdx]) + '</bdi></p>' +
         '<p class="muted" style="margin:.25rem 0">' + escapeHtml(tr(q.explanation)) + '</p>';
       d.appendChild(body);
       review.appendChild(d);

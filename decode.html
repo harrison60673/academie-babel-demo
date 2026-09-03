@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20260903-rtl5">
 <style>
   .input { font: inherit; width: 100%; max-width: 34rem; padding: .8rem 1rem;
            background: var(--paper-2); color: var(--ink);
@@ -52,7 +52,7 @@
 
     <div id="out" hidden style="margin-top:3rem">
       <h2>判定等級 <span id="d-level" style="color:var(--accent-deep)"></span></h2>
-      <p class="muted" style="font-size:var(--fs-small)">作答 <span id="d-count"></span> 題，答對 <span id="d-correct"></span> 題（<span id="d-rate"></span>%）。</p>
+      <p class="muted" id="d-summary" style="font-size:var(--fs-small)"></p>
 
       <h3 style="margin-top:2rem">四技能得分</h3>
       <div id="d-bars" style="max-width:38rem"></div>
@@ -78,7 +78,7 @@
   </div>
 </footer>
 
-<script src="js/i18n.js"></script>
+<script src="js/i18n.js?v=20260903-rtl4"></script>
 <script src="js/main.js"></script>
 <script src="js/quiz-data.js"></script>
 <script src="js/result-code.js"></script>
@@ -88,7 +88,7 @@
   var SKILL_ZH = { grammaire: '文法 Grammaire', vocabulaire: '字彙 Vocabulaire',
                    comprehension: '閱讀 Compréhension', ecoute: '聽力 Écoute' };
   var $ = function (id) { return document.getElementById(id); };
-  var t = function (source) { return window.BABEL_I18N ? window.BABEL_I18N.t(source) : source; };
+  var t = function (source, vars) { return window.BABEL_I18N ? window.BABEL_I18N.t(source, vars) : source; };
 
   function bars(skills, mount) {
     mount.innerHTML = '';
@@ -102,11 +102,11 @@
       track.style.cssText = 'display:block;height:4px;background:var(--accent-hair);position:relative';
       if (v >= 0) {
         var fill = document.createElement('span');
-        fill.style.cssText = 'position:absolute;inset:0 auto 0 0;background:var(--accent);width:' + v + '%';
+        fill.style.cssText = 'position:absolute;inset-block:0;inset-inline-start:0;background:var(--accent);width:' + v + '%';
         track.appendChild(fill);
       }
       var num = document.createElement('span');
-      num.style.textAlign = 'right';
+      num.style.textAlign = 'end';
       num.textContent = v < 0 ? '—' : v;
       row.appendChild(label); row.appendChild(track); row.appendChild(num);
       mount.appendChild(row);
@@ -124,9 +124,10 @@
     msg.textContent = '';
     $('d-level').textContent = res.level;
     var ok = res.marks.filter(Boolean).length;
-    $('d-count').textContent = res.marks.length;
-    $('d-correct').textContent = ok;
-    $('d-rate').textContent = res.marks.length ? Math.round(ok / res.marks.length * 100) : 0;
+    var rate = res.marks.length ? Math.round(ok / res.marks.length * 100) : 0;
+    $('d-summary').textContent = t('作答 {count} 題，答對 {correct} 題（{rate}%）。', {
+      count: res.marks.length, correct: ok, rate: rate
+    });
     bars(res.skills, $('d-bars'));
 
     var seq = window.BABEL_QUIZ.sequence();
@@ -146,6 +147,8 @@
         var td = document.createElement(j === 0 ? 'th' : 'td');
         if (j === 0) td.setAttribute('scope', 'row');
         td.textContent = c;
+        if (j === 1) td.className = 'ltr-token';
+        if (j === 3) td.className = 'fr-question';
         if (j === 4) td.style.color = m ? 'var(--open)' : 'var(--full)';
         tr.appendChild(td);
       });
