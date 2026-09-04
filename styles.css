@@ -309,12 +309,7 @@ html[dir="rtl"] .fr-question {
 /* ---------- 5b. 首頁 hero：銅版畫式巴別塔 ----------
    同一組幾何畫成線刻：逐層收分的圓塔、透視壓縮的拱廊、右側排線陰影、
    繞塔而上的坡道，塔頂未砌完仍架著鷹架。滑到某一層時只有那一層是實色。 */
-.tower-engraved {
-  position: relative;
-  z-index: 2;
-  max-width: 480px;
-  transition: filter 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
+.tower-engraved { max-width: 480px; }
 .tower-engraved .wall { fill: var(--tw-stone); }
 .tower-engraved .wall-line { fill: none; stroke: var(--tw-line); stroke-width: 1.1; }
 .tower-engraved .terrace { fill: var(--tw-light); fill-opacity: 0.1; stroke: var(--tw-line); stroke-width: 0.7; }
@@ -332,11 +327,67 @@ html[dir="rtl"] .fr-question {
 .tower-engraved .tier-label { fill: var(--ink); opacity: 0.8; font-variant-numeric: lining-nums; }
 .tower-engraved .tier:hover .tier-label,
 .tower-engraved .tier:focus-visible .tier-label,
-.tower-engraved .tier.active .tier-label { fill: var(--rouge); opacity: 1; }
+.tower-engraved .tier.active .tier-label { fill: var(--tier-accent, var(--rouge)); opacity: 1; }
 .tower-engraved #tw-shade .s-hi { stop-color: var(--tw-light); stop-opacity: 0.5; }
 .tower-engraved #tw-shade .s-0 { stop-color: var(--tw-shade); stop-opacity: 0; }
 .tower-engraved #tw-shade .s-1 { stop-color: var(--tw-shade); stop-opacity: 1; }
 .tower-engraved .crown { pointer-events: none; }
+
+/* 六層依序藍、白、紅；互動時只讓目前那一層貼著塔身發光。 */
+.tower-engraved .tier:nth-child(1),
+.tower-engraved .tier:nth-child(4) {
+  --tier-accent: #0055A4;
+  --tier-glow: rgba(0, 85, 164, 0.82);
+  --tier-stone: #BFD9F0;
+}
+.tower-engraved .tier:nth-child(2),
+.tower-engraved .tier:nth-child(5) {
+  --tier-accent: #FFFFFF;
+  --tier-glow: rgba(255, 255, 255, 0.98);
+  --tier-stone: #FFFDF7;
+}
+.tower-engraved .tier:nth-child(3),
+.tower-engraved .tier:nth-child(6) {
+  --tier-accent: #EF4135;
+  --tier-glow: rgba(239, 65, 53, 0.78);
+  --tier-stone: #F2C5C1;
+}
+.tower-engraved .tier .wall,
+.tower-engraved .tier .cornice {
+  transition: fill 0.32s ease;
+}
+.tower-engraved.interactive .tier:hover,
+.tower-engraved.interactive .tier:focus-visible,
+.tower-engraved.interactive .tier.active {
+  filter: drop-shadow(0 0 4px var(--tier-glow)) drop-shadow(0 0 10px var(--tier-glow));
+  animation: tower-tier-light 1.65s ease-in-out infinite alternate;
+}
+.tower-engraved.interactive .tier:hover .wall,
+.tower-engraved.interactive .tier:hover .cornice,
+.tower-engraved.interactive .tier:focus-visible .wall,
+.tower-engraved.interactive .tier:focus-visible .cornice,
+.tower-engraved.interactive .tier.active .wall,
+.tower-engraved.interactive .tier.active .cornice {
+  fill: var(--tier-stone);
+}
+.tower-engraved .tier:nth-child(2):hover .tier-label,
+.tower-engraved .tier:nth-child(2):focus-visible .tier-label,
+.tower-engraved .tier:nth-child(2).active .tier-label,
+.tower-engraved .tier:nth-child(5):hover .tier-label,
+.tower-engraved .tier:nth-child(5):focus-visible .tier-label,
+.tower-engraved .tier:nth-child(5).active .tier-label {
+  stroke: rgba(35, 32, 27, 0.7);
+  stroke-width: 0.8px;
+  paint-order: stroke fill;
+}
+@keyframes tower-tier-light {
+  from {
+    filter: drop-shadow(0 0 3px var(--tier-glow)) drop-shadow(0 0 7px var(--tier-glow));
+  }
+  to {
+    filter: drop-shadow(0 0 6px var(--tier-glow)) drop-shadow(0 0 13px var(--tier-glow));
+  }
+}
 
 /* 分隔：花飾（fleuron）夾在兩道細線之間 */
 .rule-fleuron {
@@ -361,70 +412,8 @@ html[dir="rtl"] .fr-question {
 @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: var(--s6); } }
 .hero h1 { font-size: var(--fs-hero); font-weight: 400; margin-bottom: var(--s3); }
 .hero h1 em { font-style: italic; color: var(--accent-deep); }
-.hero-figure { position: relative; isolation: isolate; }
-.tower-halo {
-  position: absolute;
-  z-index: 1;
-  top: -4%;
-  left: 50%;
-  width: min(112%, 540px);
-  aspect-ratio: 6 / 7;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateX(-50%) scale(0.76);
-  transform-origin: 50% 48%;
-  transition: opacity 0.3s ease, transform 0.7s cubic-bezier(0.2, 0.85, 0.2, 1);
-}
-.tower-halo::before,
-.tower-halo::after {
-  content: "";
-  position: absolute;
-  inset: -10%;
-  border-radius: 50%;
-}
-.tower-halo::before {
-  background:
-    radial-gradient(ellipse at 34% 49%, rgba(0, 85, 164, 0.62) 0 5%, rgba(0, 85, 164, 0.24) 28%, transparent 58%),
-    radial-gradient(ellipse at 50% 44%, rgba(255, 255, 255, 0.98) 0 7%, rgba(255, 255, 255, 0.44) 31%, transparent 61%),
-    radial-gradient(ellipse at 66% 49%, rgba(239, 65, 53, 0.58) 0 5%, rgba(239, 65, 53, 0.22) 28%, transparent 58%);
-  filter: blur(18px);
-}
-.tower-halo::after {
-  background: repeating-conic-gradient(
-    from -10deg at 50% 48%,
-    rgba(0, 85, 164, 0.38) 0deg 5deg,
-    transparent 5deg 14deg,
-    rgba(255, 255, 255, 0.68) 14deg 19deg,
-    transparent 19deg 28deg,
-    rgba(239, 65, 53, 0.34) 28deg 33deg,
-    transparent 33deg 42deg
-  );
-  -webkit-mask-image: radial-gradient(ellipse, #000 2%, rgba(0, 0, 0, 0.72) 32%, transparent 70%);
-  mask-image: radial-gradient(ellipse, #000 2%, rgba(0, 0, 0, 0.72) 32%, transparent 70%);
-  filter: blur(1px);
-}
-.tower-engraved:hover + .tower-halo,
-.tower-engraved:focus-within + .tower-halo {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
-}
-.tower-engraved:hover + .tower-halo::after,
-.tower-engraved:focus-within + .tower-halo::after {
-  animation: tower-rays 9s linear infinite;
-}
-.tower-engraved:hover,
-.tower-engraved:focus-within {
-  transform: translateY(-3px);
-  filter:
-    drop-shadow(-15px 2px 14px rgba(0, 85, 164, 0.48))
-    drop-shadow(0 0 10px rgba(255, 255, 255, 0.95))
-    drop-shadow(15px 2px 14px rgba(239, 65, 53, 0.46));
-}
-@keyframes tower-rays {
-  to { transform: rotate(360deg); }
-}
+.hero-figure { position: relative; }
 .tier-readout {
-  position: relative; z-index: 3;
   min-height: 5.2rem; margin-top: var(--s3);
   border-top: 1px solid var(--accent-hair); padding-top: var(--s2);
 }
@@ -432,10 +421,11 @@ html[dir="rtl"] .fr-question {
 .tier-readout p { margin: 0.2rem 0 0; font-size: var(--fs-small); color: var(--grey); }
 
 @media (prefers-reduced-motion: reduce) {
-  .tower-engraved,
-  .tower-halo { transition: none; }
-  .tower-engraved:hover + .tower-halo::after,
-  .tower-engraved:focus-within + .tower-halo::after { animation: none; }
+  .tower-engraved .tier .wall,
+  .tower-engraved .tier .cornice { transition: none; }
+  .tower-engraved.interactive .tier:hover,
+  .tower-engraved.interactive .tier:focus-visible,
+  .tower-engraved.interactive .tier.active { animation: none; }
 }
 
 /* ---------- 7. 按鈕 ---------- */
