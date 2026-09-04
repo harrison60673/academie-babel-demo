@@ -60,7 +60,7 @@ HTML 以繁中原文作為 fallback，不需要在每個元素加 `data-i18n`。
 
 ### 一、考試資訊（`exams.html`、`index.html`）
 向 France Éducation international（DELF / DALF / TCF）與
-CCI Paris Île-de-France（TEF）官網、以及法國在台協會確認：
+CCI Paris Île-de-France（TEF）官網，以及當地官方考試中心確認：
 
 - [ ] DELF 各等級四科的**考試時間與配分**
 - [ ] DELF / DALF 的**及格門檻**（總分 50/100、單科最低分）
@@ -69,8 +69,8 @@ CCI Paris Île-de-France（TEF）官網、以及法國在台協會確認：
 - [ ] TCF 的**分數級距對照表**（現行為 699 分制）
 - [ ] TEF 各版本的**適用機構與科目**
 - [ ] 所有考試的**效期**（DELF/DALF 終身、TCF/TEF 兩年）
-- [ ] **報名費用**（本站填的是概略區間，務必換成當年度實際金額）
-- [ ] 台灣的**考點、考程與報名期間**
+- [ ] **報名費用**（確認後再補上當年度實際金額）
+- [ ] 當地的**考點、考程與報名期間**
 - [ ] 成績與證書的**發放時程**
 - [ ] 法國國籍申請、Campus France、加拿大／魁北克移民**現行要求的等級**
 
