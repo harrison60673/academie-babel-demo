@@ -7,6 +7,14 @@
    分隔用花飾（fleuron），標記用三色徽（cocarde）。
    =========================================================== */
 
+@font-face {
+  font-family: "IRANSans";
+  src: url("assets/fonts/IRANSans-web.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 /* ---------- 1. 色票與尺度 Tokens ---------- */
 :root {
   /* bleu roi — 互動與所有陳設 */
@@ -219,8 +227,11 @@ section { padding-block: var(--s6); }
   background-repeat: no-repeat;
 }
 
+html[lang="fa-IR"] {
+  --font-display: "IRANSans", Tahoma, "Noto Sans Arabic", "Segoe UI", sans-serif;
+  --font-body: "IRANSans", Tahoma, "Noto Sans Arabic", "Segoe UI", sans-serif;
+}
 html[dir="rtl"] body {
-  font-family: Tahoma, "Noto Sans Arabic", "Segoe UI", sans-serif;
   text-align: start;
 }
 html[dir="rtl"] .language-switcher select {
