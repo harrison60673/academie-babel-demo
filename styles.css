@@ -291,6 +291,8 @@ html[dir="rtl"] .fr-question {
 .tower .stone { transition: opacity 0.35s; }
 .tower .tier { transition: filter 0.35s; }
 .tower.interactive .tier { cursor: pointer; }
+.tower.interactive .tier:focus,
+.tower.interactive .tier:focus-visible { outline: none; }
 .tower.interactive .tier .stone { opacity: 0.62; }
 .tower.interactive .tier:hover .stone,
 .tower.interactive .tier:focus-visible .stone,
@@ -373,6 +375,31 @@ html[dir="rtl"] .fr-question {
 .tower-engraved.interactive .tier.active .cornice {
   fill: var(--tier-stone);
 }
+.tower-engraved .tier-light-beams {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.24s ease;
+}
+.tower-engraved.interactive .tier:hover .tier-light-beams,
+.tower-engraved.interactive .tier:focus-visible .tier-light-beams,
+.tower-engraved.interactive .tier.active .tier-light-beams { opacity: 1; }
+.tower-engraved .tier-light-orbit {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.tower-engraved .tier-light-orbit-outer {
+  stroke: #F3C453;
+  stroke-width: 2.2;
+  stroke-dasharray: 11 9;
+  animation: tower-tier-beams 3s linear infinite;
+}
+.tower-engraved .tier-light-orbit-inner {
+  stroke: #FFF1B5;
+  stroke-width: 1.4;
+  stroke-dasharray: 3 6;
+  animation: tower-tier-beams 2.1s linear infinite reverse;
+}
 .tower-engraved .tier:nth-child(2):hover .tier-label,
 .tower-engraved .tier:nth-child(2):focus-visible .tier-label,
 .tower-engraved .tier:nth-child(2).active .tier-label,
@@ -396,6 +423,9 @@ html[dir="rtl"] .fr-question {
       drop-shadow(0 0 7px rgba(255, 225, 142, 1))
       drop-shadow(0 0 13px rgba(205, 147, 35, 0.72));
   }
+}
+@keyframes tower-tier-beams {
+  to { stroke-dashoffset: -100; }
 }
 
 /* 分隔：花飾（fleuron）夾在兩道細線之間 */
@@ -432,6 +462,8 @@ html[dir="rtl"] .fr-question {
 @media (prefers-reduced-motion: reduce) {
   .tower-engraved .tier .wall,
   .tower-engraved .tier .cornice { transition: none; }
+  .tower-engraved .tier-light-beams { transition: none; }
+  .tower-engraved .tier-light-orbit { animation: none; }
   .tower-engraved.interactive .tier:hover,
   .tower-engraved.interactive .tier:focus-visible,
   .tower-engraved.interactive .tier.active { animation: none; }
